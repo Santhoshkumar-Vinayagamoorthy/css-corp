@@ -5,6 +5,7 @@ export default class Todo extends Component {
   state = {
     todoList: [],
     filterType: 'all',
+    
   };
 
   inputRef = createRef();
@@ -13,6 +14,7 @@ export default class Todo extends Component {
     event.preventDefault();
     // const todoText = document.getElementById('todoText').value;
     const todoText = this.inputRef.current.value;
+    console.log(todoText);
     this.setState(
       ({ todoList }) => ({
         todoList: [
@@ -62,10 +64,10 @@ export default class Todo extends Component {
     const { todoList, filterType } = this.state;
     return (
       <div className="container">
-        <h1>Todo App</h1>
+        <h1>Weather Task</h1>
         <form onSubmit={this.addTodo}>
           <input type="text" ref={this.inputRef} />
-          <button type="submit">Add Todo</button>
+          <button type="submit">Check</button>
         </form>
         <div className="todo-list">
           {todoList
